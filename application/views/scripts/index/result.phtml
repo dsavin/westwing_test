@@ -1,0 +1,16 @@
+<?php if (!$this->errorMessage) : ?>
+	<p>Thank you <?php echo $this->escape($this->email); ?>. The result of your query is:</p>
+	<ul class="results">
+		<?php foreach($this->results as $row) : ?>
+		<li><?php echo $this->escape($row['id']); ?>,<?php echo $this->escape($row['firstname']); ?>,<?php echo $this->escape($row['lastname']); ?></li>
+		<?php endforeach; ?>
+	</ul>
+<?php elseif ($this->errorMessage) : ?>
+	<p><?php echo $this->escape($this->errorMessage); ?></p>
+<?php endif; ?>
+<?php
+/*
+ * Un-comment the following lines if you need some extra debugging information.
+ */
+//Zend_Debug::dump($this->results);
+//Zend_Debug::dump($this);
